@@ -1,0 +1,7 @@
+{
+  "id": "multi-page",
+  "structure": "multi-page",
+  "navigation": "page",
+  "pages": "multiple",
+  "sections": "multiple"
+}

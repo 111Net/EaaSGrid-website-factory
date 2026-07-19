@@ -1,0 +1,6 @@
+{
+  "id": "hero",
+  "type": "section",
+  "components": ["heading", "text", "button", "image"],
+  "required": ["headline"]
+}

@@ -1,0 +1,14 @@
+{
+  "composition": [
+    "component",
+    "section",
+    "page",
+    "website"
+  ],
+  "relationship": "components compose sections, sections compose pages, pages compose websites",
+  "supported_website_structures": [
+    "one-page",
+    "multi-page",
+    "hybrid"
+  ]
+}

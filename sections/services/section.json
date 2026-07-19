@@ -1,0 +1,6 @@
+{
+  "id": "services",
+  "type": "section",
+  "components": ["heading", "text", "card"],
+  "required": ["services"]
+}

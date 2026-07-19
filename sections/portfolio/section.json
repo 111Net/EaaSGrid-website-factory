@@ -1,0 +1,6 @@
+{
+  "id": "portfolio",
+  "type": "section",
+  "components": ["heading", "gallery", "card"],
+  "required": ["items"]
+}

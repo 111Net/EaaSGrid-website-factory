@@ -1,0 +1,5 @@
+{
+  "id": "footer",
+  "type": "navigation",
+  "properties": ["columns", "links", "copyright", "social_links"]
+}

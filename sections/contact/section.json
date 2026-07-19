@@ -1,0 +1,6 @@
+{
+  "id": "contact",
+  "type": "section",
+  "components": ["heading", "text", "form"],
+  "required": ["contact"]
+}

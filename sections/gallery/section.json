@@ -1,0 +1,6 @@
+{
+  "id": "gallery",
+  "type": "section",
+  "components": ["heading", "gallery"],
+  "required": ["images"]
+}

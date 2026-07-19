@@ -1,0 +1,5 @@
+{
+  "id": "heading",
+  "type": "content",
+  "properties": ["text", "level", "alignment"]
+}

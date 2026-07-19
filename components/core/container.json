@@ -1,0 +1,5 @@
+{
+  "id": "container",
+  "type": "core",
+  "properties": ["width", "padding", "alignment"]
+}

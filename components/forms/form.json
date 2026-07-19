@@ -1,0 +1,5 @@
+{
+  "id": "form",
+  "type": "form",
+  "properties": ["fields", "action", "method", "success_message"]
+}

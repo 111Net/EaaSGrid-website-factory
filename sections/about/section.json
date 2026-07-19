@@ -1,0 +1,6 @@
+{
+  "id": "about",
+  "type": "section",
+  "components": ["heading", "text", "image"],
+  "required": ["content"]
+}

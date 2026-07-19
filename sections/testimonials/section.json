@@ -1,0 +1,6 @@
+{
+  "id": "testimonials",
+  "type": "section",
+  "components": ["heading", "testimonial"],
+  "required": ["testimonials"]
+}

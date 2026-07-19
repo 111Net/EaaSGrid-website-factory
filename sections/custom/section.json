@@ -1,0 +1,6 @@
+{
+  "id": "custom",
+  "type": "section",
+  "components": ["heading", "text", "image", "button"],
+  "required": []
+}

@@ -1,0 +1,16 @@
+{
+  "components": [
+    "button",
+    "card",
+    "container",
+    "image",
+    "video",
+    "text",
+    "heading",
+    "navbar",
+    "footer",
+    "form",
+    "gallery",
+    "testimonial"
+  ]
+}

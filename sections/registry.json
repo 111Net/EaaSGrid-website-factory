@@ -1,0 +1,12 @@
+{
+  "sections": [
+    "hero",
+    "services",
+    "about",
+    "portfolio",
+    "testimonials",
+    "contact",
+    "gallery",
+    "custom"
+  ]
+}

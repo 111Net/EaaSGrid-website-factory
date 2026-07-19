@@ -1,0 +1,5 @@
+{
+  "id": "button",
+  "type": "core",
+  "properties": ["label", "href", "variant", "target"]
+}

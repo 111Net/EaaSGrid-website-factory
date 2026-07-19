@@ -1,0 +1,5 @@
+{
+  "id": "gallery",
+  "type": "content",
+  "properties": ["images", "layout", "lightbox"]
+}

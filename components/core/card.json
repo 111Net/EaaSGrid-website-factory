@@ -1,0 +1,5 @@
+{
+  "id": "card",
+  "type": "core",
+  "properties": ["title", "description", "image", "link"]
+}

@@ -1,0 +1,5 @@
+{
+  "id": "text",
+  "type": "content",
+  "properties": ["content", "alignment", "format"]
+}

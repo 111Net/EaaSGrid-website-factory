@@ -1,0 +1,6 @@
+{
+  "id": "navbar",
+  "type": "navigation",
+  "properties": ["position", "items", "logo", "mobile_behavior"],
+  "allowed_positions": ["top", "bottom", "left", "right", "floating"]
+}

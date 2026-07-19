@@ -1,0 +1,5 @@
+{
+  "id": "testimonial",
+  "type": "content",
+  "properties": ["name", "role", "content", "image"]
+}

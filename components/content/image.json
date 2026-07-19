@@ -1,0 +1,5 @@
+{
+  "id": "image",
+  "type": "content",
+  "properties": ["src", "alt", "width", "height", "loading"]
+}
