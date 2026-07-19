@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EaaSGrid Rendering Manifest",
+  "type": "object",
+  "required": [
+    "client_id",
+    "renderer",
+    "status",
+    "layers"
+  ],
+  "properties": {
+    "client_id": {
+      "type": "string"
+    },
+    "renderer": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "initialized"
+      ]
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
