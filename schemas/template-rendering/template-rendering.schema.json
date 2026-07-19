@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EaaSGrid Template Rendering Contract",
+  "type": "object",
+  "required": [
+    "website_id",
+    "template_engine",
+    "pages",
+    "sections",
+    "components",
+    "theme",
+    "output"
+  ],
+  "properties": {
+    "website_id": {
+      "type": "string"
+    },
+    "template_engine": {
+      "type": "string"
+    },
+    "pages": {
+      "type": "array"
+    },
+    "sections": {
+      "type": "array"
+    },
+    "components": {
+      "type": "array"
+    },
+    "theme": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
