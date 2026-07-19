@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Website Manifest",
+  "type": "object",
+  "required": [
+    "client_id",
+    "engine",
+    "status",
+    "generated_at"
+  ],
+  "properties": {
+    "client_id": {
+      "type": "string"
+    },
+    "engine": {
+      "const": "EaaSGrid Website Factory"
+    },
+    "status": {
+      "const": "created"
+    },
+    "generated_at": {
+      "type": "string"
+    }
+  }
+}
