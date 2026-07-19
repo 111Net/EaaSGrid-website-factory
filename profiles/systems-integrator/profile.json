@@ -1,0 +1,14 @@
+{
+  "id": "systems-integrator",
+  "name": "Systems Integrator",
+  "category": "technology",
+  "default_structure": "hybrid",
+  "navigation_position": "top",
+  "supported_pages": [
+    "home",
+    "solutions",
+    "about",
+    "contact",
+    "projects"
+  ]
+}

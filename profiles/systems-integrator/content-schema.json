@@ -1,0 +1,12 @@
+{
+  "company_name": "string",
+  "tagline": "string",
+  "description": "string",
+  "solutions": "array",
+  "technologies": "array",
+  "industries": "array",
+  "projects": "array",
+  "phone": "string",
+  "email": "string",
+  "address": "string"
+}

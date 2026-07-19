@@ -1,0 +1,34 @@
+{
+  "pages": [
+    {
+      "id": "home",
+      "name": "Home",
+      "slug": "/",
+      "type": "page"
+    },
+    {
+      "id": "services",
+      "name": "Services",
+      "slug": "/services",
+      "type": "page"
+    },
+    {
+      "id": "about",
+      "name": "About",
+      "slug": "/about",
+      "type": "page"
+    },
+    {
+      "id": "contact",
+      "name": "Contact",
+      "slug": "/contact",
+      "type": "page"
+    },
+    {
+      "id": "service-areas",
+      "name": "Service Areas",
+      "slug": "/service-areas",
+      "type": "page"
+    }
+  ]
+}

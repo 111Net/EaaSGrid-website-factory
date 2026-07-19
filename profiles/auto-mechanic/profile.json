@@ -1,0 +1,14 @@
+{
+  "id": "auto-mechanic",
+  "name": "Auto Mechanic",
+  "category": "automotive",
+  "default_structure": "hybrid",
+  "navigation_position": "top",
+  "supported_pages": [
+    "home",
+    "services",
+    "about",
+    "contact",
+    "gallery"
+  ]
+}

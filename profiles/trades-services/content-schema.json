@@ -1,0 +1,13 @@
+{
+  "business_name": "string",
+  "tagline": "string",
+  "description": "string",
+  "services": "array",
+  "service_areas": "array",
+  "projects": "array",
+  "testimonials": "array",
+  "phone": "string",
+  "email": "string",
+  "address": "string",
+  "opening_hours": "object"
+}

@@ -1,0 +1,15 @@
+{
+  "content_model": "universal",
+  "supported_field_types": [
+    "string",
+    "text",
+    "number",
+    "boolean",
+    "array",
+    "object",
+    "image",
+    "video",
+    "link"
+  ],
+  "principle": "Website type profiles define content requirements without changing the core engine"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "personal",
+  "name": "Personal Website",
+  "category": "personal",
+  "default_structure": "hybrid",
+  "navigation_position": "top",
+  "supported_pages": [
+    "home",
+    "about",
+    "portfolio",
+    "contact",
+    "custom"
+  ]
+}

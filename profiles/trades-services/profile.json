@@ -1,0 +1,14 @@
+{
+  "id": "trades-services",
+  "name": "Trades & Services",
+  "category": "services",
+  "default_structure": "hybrid",
+  "navigation_position": "top",
+  "supported_pages": [
+    "home",
+    "services",
+    "about",
+    "contact",
+    "service-areas"
+  ]
+}

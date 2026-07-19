@@ -1,0 +1,11 @@
+{
+  "name": "string",
+  "headline": "string",
+  "biography": "string",
+  "skills": "array",
+  "experience": "array",
+  "portfolio": "array",
+  "social_links": "array",
+  "email": "string",
+  "phone": "string"
+}
