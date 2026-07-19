@@ -1,0 +1,17 @@
+{
+  "entity": "client",
+  "required": [
+    "id",
+    "name",
+    "website_type"
+  ],
+  "fields": [
+    "id",
+    "name",
+    "business_name",
+    "website_type",
+    "contact",
+    "branding",
+    "content"
+  ]
+}

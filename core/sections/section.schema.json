@@ -1,0 +1,8 @@
+{
+  "entity": "section",
+  "required": [
+    "id",
+    "type",
+    "content"
+  ]
+}

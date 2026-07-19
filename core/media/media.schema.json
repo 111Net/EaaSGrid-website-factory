@@ -1,0 +1,13 @@
+{
+  "entity": "media",
+  "supported_types": [
+    "image",
+    "video",
+    "document"
+  ],
+  "storage": [
+    "local",
+    "portable",
+    "cloud-adapter"
+  ]
+}

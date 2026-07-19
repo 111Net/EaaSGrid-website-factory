@@ -1,0 +1,11 @@
+{
+  "entity": "validation",
+  "checks": [
+    "configuration",
+    "schema",
+    "content",
+    "assets",
+    "build",
+    "deployment"
+  ]
+}

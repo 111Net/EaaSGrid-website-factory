@@ -1,0 +1,20 @@
+{
+  "id": "trades-services",
+  "name": "Trades & Services",
+  "default_structure": "hybrid",
+  "recommended_pages": [
+    "home",
+    "services",
+    "about",
+    "contact",
+    "service-areas"
+  ],
+  "recommended_sections": [
+    "hero",
+    "services",
+    "benefits",
+    "projects",
+    "testimonials",
+    "contact"
+  ]
+}

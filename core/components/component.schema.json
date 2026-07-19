@@ -1,0 +1,8 @@
+{
+  "entity": "component",
+  "required": [
+    "id",
+    "type",
+    "properties"
+  ]
+}

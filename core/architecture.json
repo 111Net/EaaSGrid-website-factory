@@ -1,0 +1,19 @@
+{
+  "product": "EaaSGrid Website Factory",
+  "architecture_version": "1.0.0",
+  "principle": "One portable core engine, multiple website types and clients",
+  "core_domains": [
+    "website",
+    "client",
+    "pages",
+    "sections",
+    "components",
+    "themes",
+    "navigation",
+    "content",
+    "media",
+    "build",
+    "validation",
+    "deployment"
+  ]
+}

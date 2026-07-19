@@ -1,0 +1,16 @@
+{
+  "entity": "website",
+  "required": [
+    "id",
+    "client_id",
+    "website_type",
+    "structure",
+    "theme",
+    "pages"
+  ],
+  "allowed_structures": [
+    "one-page",
+    "multi-page",
+    "hybrid"
+  ]
+}

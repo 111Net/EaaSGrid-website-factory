@@ -1,0 +1,20 @@
+{
+  "id": "systems-integrator",
+  "name": "Systems Integrator",
+  "default_structure": "hybrid",
+  "recommended_pages": [
+    "home",
+    "solutions",
+    "about",
+    "contact",
+    "projects"
+  ],
+  "recommended_sections": [
+    "hero",
+    "solutions",
+    "technology",
+    "industries",
+    "projects",
+    "contact"
+  ]
+}

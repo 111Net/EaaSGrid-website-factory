@@ -1,0 +1,11 @@
+{
+  "entity": "content",
+  "supported_types": [
+    "text",
+    "image",
+    "video",
+    "document",
+    "link",
+    "contact"
+  ]
+}

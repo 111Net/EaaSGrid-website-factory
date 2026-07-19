@@ -1,0 +1,18 @@
+{
+  "engine": "EaaSGrid Website Factory",
+  "model": "portable-core-engine",
+  "website_generation": {
+    "engine": "shared",
+    "profiles": "variable",
+    "client_data": "variable",
+    "content": "variable",
+    "theme": "variable",
+    "deployment": "adapter-based"
+  },
+  "supported_types": [
+    "auto-mechanic",
+    "systems-integrator",
+    "personal",
+    "trades-services"
+  ]
+}

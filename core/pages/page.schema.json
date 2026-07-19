@@ -1,0 +1,13 @@
+{
+  "entity": "page",
+  "required": [
+    "id",
+    "name",
+    "slug",
+    "sections"
+  ],
+  "supported_modes": [
+    "page",
+    "section"
+  ]
+}

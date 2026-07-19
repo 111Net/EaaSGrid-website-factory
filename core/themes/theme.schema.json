@@ -1,0 +1,15 @@
+{
+  "entity": "theme",
+  "required": [
+    "id",
+    "name",
+    "tokens"
+  ],
+  "tokens": [
+    "colors",
+    "typography",
+    "spacing",
+    "borders",
+    "shadows"
+  ]
+}

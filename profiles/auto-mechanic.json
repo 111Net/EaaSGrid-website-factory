@@ -1,0 +1,20 @@
+{
+  "id": "auto-mechanic",
+  "name": "Auto Mechanic",
+  "default_structure": "hybrid",
+  "recommended_pages": [
+    "home",
+    "services",
+    "about",
+    "contact",
+    "gallery"
+  ],
+  "recommended_sections": [
+    "hero",
+    "services",
+    "vehicle-types",
+    "why-choose-us",
+    "testimonials",
+    "contact"
+  ]
+}

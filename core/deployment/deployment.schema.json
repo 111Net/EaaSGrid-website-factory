@@ -1,0 +1,11 @@
+{
+  "entity": "deployment",
+  "supported_drivers": [
+    "local",
+    "nginx",
+    "docker",
+    "vps",
+    "gcp"
+  ],
+  "principle": "Deployment must be adapter-based"
+}

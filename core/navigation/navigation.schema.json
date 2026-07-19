@@ -1,0 +1,14 @@
+{
+  "entity": "navigation",
+  "required": [
+    "position",
+    "items"
+  ],
+  "allowed_positions": [
+    "top",
+    "bottom",
+    "left",
+    "right",
+    "floating"
+  ]
+}

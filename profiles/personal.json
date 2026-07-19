@@ -1,0 +1,20 @@
+{
+  "id": "personal",
+  "name": "Personal Website",
+  "default_structure": "hybrid",
+  "recommended_pages": [
+    "home",
+    "about",
+    "portfolio",
+    "contact",
+    "custom"
+  ],
+  "recommended_sections": [
+    "introduction",
+    "biography",
+    "skills",
+    "portfolio",
+    "experience",
+    "contact"
+  ]
+}
