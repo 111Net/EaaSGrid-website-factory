@@ -1,8 +1,8 @@
 {
   "project": "EaaSGrid Website Factory",
   "project_root": "/data/eaasgrid-website-factory",
-  "current_week": 1,
-  "current_day": 7,
+  "current_week": 2,
+  "current_day": 1,
   "status": "PASS",
   "completed_tasks": [
     "Product initialization",
@@ -11,8 +11,9 @@
     "Website type profiles and content schema",
     "Reusable page, section and component system",
     "Theme and design system",
-    "Client project structure and website generation contract"
+    "Client project structure and website generation contract",
+    "Website Factory CLI and Project Generator"
   ],
   "blocked_tasks": [],
-  "next_task": "Week 2 Day 1 - Website Factory CLI and Project Generator"
+  "next_task": "Day 2 - Website Type Profile Resolver"
 }
