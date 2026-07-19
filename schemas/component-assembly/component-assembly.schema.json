@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Component Assembly",
+  "type": "object",
+  "required": ["assembly"],
+  "properties": {
+    "assembly": {
+      "type": "object",
+      "required": ["type", "component_count", "components"],
+      "properties": {
+        "type": {
+          "const": "component-assembly"
+        },
+        "component_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "components": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "order"],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "order": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
