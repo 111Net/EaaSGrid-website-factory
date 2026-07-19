@@ -1,0 +1,13 @@
+{
+  "id": "default",
+  "name": "default",
+  "tokens": {
+    "colors": {},
+    "typography": {},
+    "spacing": {},
+    "layout": {},
+    "borders": {},
+    "shadows": {},
+    "responsive": {}
+  }
+}

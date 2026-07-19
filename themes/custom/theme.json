@@ -1,0 +1,13 @@
+{
+  "id": "custom",
+  "name": "custom",
+  "tokens": {
+    "colors": {},
+    "typography": {},
+    "spacing": {},
+    "layout": {},
+    "borders": {},
+    "shadows": {},
+    "responsive": {}
+  }
+}

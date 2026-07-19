@@ -1,0 +1,14 @@
+{
+  "system": "EaaSGrid Website Factory Theme System",
+  "version": "1.0.0",
+  "principle": "Themes are configuration-driven and independent of website type",
+  "tokens": [
+    "colors",
+    "typography",
+    "spacing",
+    "layout",
+    "borders",
+    "shadows",
+    "responsive"
+  ]
+}

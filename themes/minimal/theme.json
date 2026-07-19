@@ -1,0 +1,13 @@
+{
+  "id": "minimal",
+  "name": "minimal",
+  "tokens": {
+    "colors": {},
+    "typography": {},
+    "spacing": {},
+    "layout": {},
+    "borders": {},
+    "shadows": {},
+    "responsive": {}
+  }
+}
