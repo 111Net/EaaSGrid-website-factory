@@ -1,0 +1,9 @@
+{
+  "entity": "build",
+  "required": [
+    "source",
+    "output",
+    "environment"
+  ],
+  "principle": "Build output must be portable"
+}

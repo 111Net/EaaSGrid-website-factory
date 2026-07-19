@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EaaSGrid Website Factory Build Manifest",
+  "type": "object",
+  "required": [
+    "client_id",
+    "project_root",
+    "build_root",
+    "status",
+    "pipeline"
+  ],
+  "properties": {
+    "client_id": {
+      "type": "string"
+    },
+    "project_root": {
+      "type": "string"
+    },
+    "build_root": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "built"
+      ]
+    },
+    "pipeline": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
