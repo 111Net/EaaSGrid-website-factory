@@ -1,0 +1,10 @@
+{
+  "supported_environments": [
+    "local-development",
+    "ubuntu-linux",
+    "docker",
+    "vps",
+    "gcp"
+  ],
+  "configuration_mode": "environment-driven"
+}

@@ -1,0 +1,17 @@
+{
+  "product_name": "EaaSGrid Website Factory",
+  "product_version": "0.1.0",
+  "product_type": "Portable Website Generation and Deployment Platform",
+  "website_types": [
+    "auto-mechanic",
+    "systems-integrator",
+    "personal",
+    "trades-services"
+  ],
+  "website_structures": [
+    "one-page",
+    "multi-page",
+    "hybrid"
+  ],
+  "project_root_mode": "dynamic"
+}
