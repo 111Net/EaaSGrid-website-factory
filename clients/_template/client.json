@@ -1,0 +1,10 @@
+{
+  "id": "client-id",
+  "name": "Client Name",
+  "contact": {
+    "email": "",
+    "phone": "",
+    "address": ""
+  },
+  "status": "draft"
+}

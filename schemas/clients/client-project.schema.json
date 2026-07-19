@@ -1,0 +1,17 @@
+{
+  "entity": "client-project",
+  "required_directories": [
+    "content",
+    "media",
+    "pages",
+    "theme",
+    "build",
+    "deployment",
+    "generated"
+  ],
+  "required_files": [
+    "client.json",
+    "website.json"
+  ],
+  "principle": "Client projects contain configuration and content, not copies of the core engine"
+}

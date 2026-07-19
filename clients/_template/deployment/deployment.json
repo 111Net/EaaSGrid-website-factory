@@ -1,0 +1,7 @@
+{
+  "target": "local",
+  "domain": "",
+  "web_server": "nginx",
+  "ssl": false,
+  "status": "not-deployed"
+}

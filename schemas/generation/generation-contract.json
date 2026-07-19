@@ -1,0 +1,15 @@
+{
+  "input": [
+    "client.json",
+    "website.json",
+    "content",
+    "media",
+    "pages",
+    "theme"
+  ],
+  "engine": "EaaSGrid Website Factory Core",
+  "output": [
+    "generated website"
+  ],
+  "principle": "same core engine plus different client configuration produces different websites"
+}

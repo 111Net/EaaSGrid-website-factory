@@ -1,0 +1,23 @@
+{
+  "pages": [
+    {
+      "id": "home",
+      "name": "Home",
+      "path": "/",
+      "type": "page"
+    },
+    {
+      "id": "services",
+      "name": "Services",
+      "path": "/services",
+      "type": "page"
+    },
+    {
+      "id": "contact",
+      "name": "Contact",
+      "path": "/contact",
+      "type": "page"
+    }
+  ],
+  "custom_pages": []
+}
