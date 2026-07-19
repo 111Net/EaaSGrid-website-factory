@@ -1,0 +1,8 @@
+{
+  "environment": "test",
+  "debug": true,
+  "database_driver": "test",
+  "storage_driver": "test",
+  "deployment_driver": "test",
+  "web_server": "test"
+}

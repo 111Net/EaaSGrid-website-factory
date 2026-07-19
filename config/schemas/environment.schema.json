@@ -1,0 +1,15 @@
+{
+  "required": [
+    "environment",
+    "debug",
+    "database_driver",
+    "storage_driver",
+    "deployment_driver",
+    "web_server"
+  ],
+  "allowed_environments": [
+    "development",
+    "test",
+    "production"
+  ]
+}

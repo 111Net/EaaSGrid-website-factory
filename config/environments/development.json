@@ -1,0 +1,8 @@
+{
+  "environment": "development",
+  "debug": true,
+  "database_driver": "local",
+  "storage_driver": "local",
+  "deployment_driver": "local",
+  "web_server": "nginx"
+}

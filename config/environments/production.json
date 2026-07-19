@@ -1,0 +1,8 @@
+{
+  "environment": "production",
+  "debug": false,
+  "database_driver": "configured",
+  "storage_driver": "configured",
+  "deployment_driver": "configured",
+  "web_server": "nginx"
+}
