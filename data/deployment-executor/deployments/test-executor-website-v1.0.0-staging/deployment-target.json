@@ -1,0 +1,9 @@
+{
+  "website_id": "test-executor-website",
+  "environment": "staging",
+  "version": "v1.0.0",
+  "target_id": "staging-default",
+  "target_type": "filesystem",
+  "target_path": "data/deployments/staging",
+  "target_status": "resolved"
+}

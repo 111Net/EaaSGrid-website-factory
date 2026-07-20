@@ -1,0 +1,8 @@
+{
+  "deployment_id": "test-executor-website-v1.0.0-staging",
+  "website_id": "test-executor-website",
+  "environment": "staging",
+  "version": "v1.0.0",
+  "target_path": "data/deployments/staging",
+  "deployment_status": "deployed"
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eaasgrid.local/schemas/deployment-executor.schema.json",
+  "title": "EaaSGrid Deployment Executor",
+  "type": "object",
+  "required": [
+    "deployment_id",
+    "website_id",
+    "environment",
+    "version",
+    "target_path",
+    "deployment_status"
+  ],
+  "properties": {
+    "deployment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "website_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "environment": {
+      "type": "string",
+      "enum": [
+        "local",
+        "staging",
+        "production"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deployment_status": {
+      "type": "string",
+      "enum": [
+        "deployed"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
