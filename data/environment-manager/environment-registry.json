@@ -1,0 +1,16 @@
+{
+  "environments": [
+    {
+      "environment_id": "env-a",
+      "website_id": "client-a",
+      "preview_id": "preview-a",
+      "status": "destroyed"
+    },
+    {
+      "environment_id": "env-b",
+      "website_id": "client-b",
+      "preview_id": "preview-b",
+      "status": "created"
+    }
+  ]
+}

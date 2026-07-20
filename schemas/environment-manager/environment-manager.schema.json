@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EaaSGrid Website Environment Manager",
+  "type": "object",
+  "required": ["environments"],
+  "properties": {
+    "environments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "environment_id",
+          "website_id",
+          "preview_id",
+          "status"
+        ],
+        "properties": {
+          "environment_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "website_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "preview_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "created",
+              "ready",
+              "running",
+              "stopped",
+              "failed",
+              "destroyed"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
