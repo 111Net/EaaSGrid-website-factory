@@ -1,0 +1,21 @@
+{
+  "runtime_name": "eaasgrid-website-runtime",
+  "runtime_version": "1.0.0",
+  "environment": "development",
+  "lifecycle": [
+    "load",
+    "validate",
+    "initialize",
+    "prepare",
+    "ready",
+    "serve",
+    "shutdown"
+  ],
+  "architecture": {
+    "input": "generated website output",
+    "loader": "runtime-loader",
+    "context": "runtime-context",
+    "validation": "validate-runtime",
+    "future_server": "static or application runtime"
+  }
+}

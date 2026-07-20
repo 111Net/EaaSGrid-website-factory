@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EaaSGrid Website Runtime",
+  "type": "object",
+  "required": [
+    "runtime_name",
+    "runtime_version",
+    "environment",
+    "project_root",
+    "lifecycle"
+  ],
+  "properties": {
+    "runtime_name": {
+      "type": "string"
+    },
+    "runtime_version": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string",
+      "enum": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    "project_root": {
+      "type": "string"
+    },
+    "lifecycle": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
