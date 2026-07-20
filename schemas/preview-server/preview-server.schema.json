@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local Preview Server",
+  "type": "object",
+  "required": [
+    "website",
+    "host",
+    "port",
+    "status",
+    "runtime"
+  ],
+  "properties": {
+    "website": {
+      "type": "string"
+    },
+    "host": {
+      "type": "string"
+    },
+    "port": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65535
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "STARTING",
+        "READY",
+        "SERVING",
+        "STOPPED",
+        "FAILED"
+      ]
+    },
+    "runtime": {
+      "type": "string"
+    }
+  }
+}
