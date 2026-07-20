@@ -10,7 +10,6 @@ VERIFIER="${PROJECT_ROOT}/core/deployment-verification/engine/verify-deployment.
 HEALTH_GATE="${PROJECT_ROOT}/core/deployment-verification/engine/health-gate.sh"
 ROLLBACK="${PROJECT_ROOT}/core/deployment-rollback/engine/rollback-deployment.sh"
 STATE_MACHINE="${PROJECT_ROOT}/core/deployment-state-machine/engine/deployment-state-machine.sh"
-AUDIT_ENGINE="${PROJECT_ROOT}/core/deployment-audit/engine/record-deployment-audit.sh"
 
 WEBSITE_ID="${1:-}"
 ENVIRONMENT="${2:-}"
@@ -18,87 +17,44 @@ VERSION="${3:-}"
 
 if [[ -z "${WEBSITE_ID}" || -z "${ENVIRONMENT}" || -z "${VERSION}" ]]; then
     echo "ERROR: Usage: deployment-controller.sh <website_id> <environment> <version>"
-    exit 2
+    exit 1
 fi
 
 CURRENT_STATE="CREATED"
-TRANSITIONS=()
-
-PACKAGE="${PROJECT_ROOT}/data/deployment-package/packages/${WEBSITE_ID}/${VERSION}"
-TARGET="${PACKAGE}"
-DEPLOYMENT="${PROJECT_ROOT}/data/deployment-executor/deployments/${WEBSITE_ID}-${VERSION}-${ENVIRONMENT}"
-DEPLOYMENT_ID="$(basename "${DEPLOYMENT}")"
-
-AUDIT_FILE="${PROJECT_ROOT}/data/deployment-audit/${DEPLOYMENT_ID}.json"
 
 transition() {
     local next_state="$1"
 
-    "${STATE_MACHINE}" \
-        "${CURRENT_STATE}" \
-        "${next_state}" \
-        | grep -q "deployment-transition-valid"
+    "${STATE_MACHINE}" "${CURRENT_STATE}" "${next_state}"         | grep -q "deployment-transition-valid"
 
-    TRANSITIONS+=("${CURRENT_STATE}->${next_state}")
     CURRENT_STATE="${next_state}"
 
     echo "STATE: ${CURRENT_STATE}"
 }
 
-record_audit() {
-    local lifecycle_status="$1"
-    local final_state="$2"
+rollback_lifecycle() {
+    echo "ACTION: Failure transition"
 
-    local transitions_json
+    transition FAILED
 
-    transitions_json="$(
-        python3 - "${TRANSITIONS[@]}" <<'PY'
-import json
-import sys
+    echo "ACTION: Rollback transition"
 
-print(json.dumps([
-    {
-        "from": item.split("->", 1)[0],
-        "to": item.split("->", 1)[1],
-    }
-    for item in sys.argv[1:]
-]))
-PY
-    )"
-
-    "${AUDIT_ENGINE}" \
-        "${AUDIT_FILE}" \
-        "${DEPLOYMENT_ID}" \
-        "${WEBSITE_ID}" \
-        "${ENVIRONMENT}" \
-        "${VERSION}" \
-        "${lifecycle_status}" \
-        "${final_state}" \
-        "${transitions_json}" \
-        | grep -q "deployment-audit-recorded"
-
-    echo "PASS: Audit recorded"
-}
-
-rollback_and_exit() {
-    echo "ACTION: Rollback"
+    transition ROLLBACK
 
     ROLLBACK_OUTPUT="$("${ROLLBACK}" "${DEPLOYMENT}")"
 
-    printf '%s\n' "${ROLLBACK_OUTPUT}" \
-        | grep -q "deployment-rollback-complete"
+    printf '%s\n' "${ROLLBACK_OUTPUT}"         | grep -q "deployment-rollback-complete"
+
+    transition ROLLED_BACK
 
     echo "PASS: Rollback"
-
-    transition ROLLED_BACK 2>/dev/null || true
-
-    record_audit "rolled_back" "ROLLED_BACK"
-
     echo "lifecycle_status=rolled_back"
-    echo "final_state=ROLLED_BACK"
-
-    return 1
+    echo "final_state=${CURRENT_STATE}"
 }
+
+PACKAGE="${PROJECT_ROOT}/data/deployment-package/packages/${WEBSITE_ID}/${VERSION}"
+TARGET="${PACKAGE}"
+DEPLOYMENT="${PROJECT_ROOT}/data/deployment-executor/deployments/${WEBSITE_ID}-${VERSION}-${ENVIRONMENT}"
 
 echo "=== DEPLOYMENT LIFECYCLE CONTROLLER ==="
 
@@ -128,46 +84,74 @@ echo "4. VERIFY"
 
 if [[ "${CONTROLLER_INJECT_FAILURE:-}" == "verify" ]]; then
     echo "INJECTED FAILURE: verification"
-    rollback_and_exit
+    VERIFICATION_FAILED=1
 else
     VERIFICATION_OUTPUT="$("${VERIFIER}" "${DEPLOYMENT}")"
 
     if printf '%s\n' "${VERIFICATION_OUTPUT}" \
         | grep -q "deployment-verified"; then
-        echo "PASS: Verification"
-        transition VERIFIED
+        VERIFICATION_FAILED=0
     else
-        echo "FAIL: Verification"
-        rollback_and_exit
+        VERIFICATION_FAILED=1
     fi
 fi
+
+if [[ "${VERIFICATION_FAILED}" -eq 1 ]]; then
+    echo "FAIL: Verification"
+    echo "ACTION: Rollback"
+
+    ROLLBACK_OUTPUT="$("${ROLLBACK}" "${DEPLOYMENT}")"
+
+    printf '%s\n' "${ROLLBACK_OUTPUT}" \
+        | grep -q "deployment-rollback-complete"
+
+    echo "PASS: Rollback"
+    echo "lifecycle_status=rolled_back"
+    exit 1
+fi
+
+echo "PASS: Verification"
+transition VERIFIED
 
 echo
 echo "5. HEALTH GATE"
 
 if [[ "${CONTROLLER_INJECT_FAILURE:-}" == "health" ]]; then
     echo "INJECTED FAILURE: health gate"
-    rollback_and_exit
+    HEALTH_FAILED=1
 else
     HEALTH_OUTPUT="$("${HEALTH_GATE}" "${DEPLOYMENT}")"
 
     if printf '%s\n' "${HEALTH_OUTPUT}" \
         | grep -q "health-gate-passed"; then
-        echo "PASS: Health Gate"
-        transition HEALTH_CHECKED
+        HEALTH_FAILED=0
     else
-        echo "FAIL: Health Gate"
-        rollback_and_exit
+        HEALTH_FAILED=1
     fi
 fi
+
+if [[ "${HEALTH_FAILED}" -eq 1 ]]; then
+    echo "FAIL: Health Gate"
+    echo "ACTION: Rollback"
+
+    ROLLBACK_OUTPUT="$("${ROLLBACK}" "${DEPLOYMENT}")"
+
+    printf '%s\n' "${ROLLBACK_OUTPUT}" \
+        | grep -q "deployment-rollback-complete"
+
+    echo "PASS: Rollback"
+    echo "lifecycle_status=rolled_back"
+    exit 1
+fi
+
+echo "PASS: Health Gate"
+transition HEALTH_CHECKED
 
 echo
 transition COMPLETED
 
-record_audit "complete" "COMPLETED"
-
 echo
 echo "=== DEPLOYMENT LIFECYCLE COMPLETE ==="
-echo "deployment_id=${DEPLOYMENT_ID}"
+echo "deployment_id=$(basename "${DEPLOYMENT}")"
 echo "lifecycle_status=complete"
-echo "final_state=COMPLETED"
+echo "final_state=${CURRENT_STATE}"
