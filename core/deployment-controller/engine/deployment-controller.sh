@@ -9,6 +9,7 @@ EXECUTOR="${PROJECT_ROOT}/core/deployment-executor/engine/execute-deployment.sh"
 VERIFIER="${PROJECT_ROOT}/core/deployment-verification/engine/verify-deployment.sh"
 HEALTH_GATE="${PROJECT_ROOT}/core/deployment-verification/engine/health-gate.sh"
 ROLLBACK="${PROJECT_ROOT}/core/deployment-rollback/engine/rollback-deployment.sh"
+STATE_MACHINE="${PROJECT_ROOT}/core/deployment-state-machine/engine/deployment-state-machine.sh"
 
 WEBSITE_ID="${1:-}"
 ENVIRONMENT="${2:-}"
@@ -18,6 +19,18 @@ if [[ -z "${WEBSITE_ID}" || -z "${ENVIRONMENT}" || -z "${VERSION}" ]]; then
     echo "ERROR: Usage: deployment-controller.sh <website_id> <environment> <version>"
     exit 1
 fi
+
+CURRENT_STATE="CREATED"
+
+transition() {
+    local next_state="$1"
+
+    "${STATE_MACHINE}" "${CURRENT_STATE}" "${next_state}"         | grep -q "deployment-transition-valid"
+
+    CURRENT_STATE="${next_state}"
+
+    echo "STATE: ${CURRENT_STATE}"
+}
 
 PACKAGE="${PROJECT_ROOT}/data/deployment-package/packages/${WEBSITE_ID}/${VERSION}"
 TARGET="${PACKAGE}"
@@ -30,18 +43,21 @@ echo "1. PACKAGE"
 "${PACKAGE_ENGINE}" "${WEBSITE_ID}" "${ENVIRONMENT}" "${VERSION}" \
     | grep -q "deployment-package-ready"
 echo "PASS: Package"
+transition PACKAGED
 
 echo
 echo "2. TARGET"
 "${TARGET_ENGINE}" "${WEBSITE_ID}" "${ENVIRONMENT}" "${VERSION}" \
     | grep -q "deployment-target-resolved"
 echo "PASS: Target"
+transition TARGET_RESOLVED
 
 echo
 echo "3. EXECUTE"
 "${EXECUTOR}" "${PACKAGE}" "${TARGET}" \
     | grep -q "deployment-complete"
 echo "PASS: Execution"
+transition EXECUTED
 
 echo
 echo "4. VERIFY"
@@ -75,6 +91,7 @@ if [[ "${VERIFICATION_FAILED}" -eq 1 ]]; then
 fi
 
 echo "PASS: Verification"
+transition VERIFIED
 
 echo
 echo "5. HEALTH GATE"
@@ -108,8 +125,13 @@ if [[ "${HEALTH_FAILED}" -eq 1 ]]; then
 fi
 
 echo "PASS: Health Gate"
+transition HEALTH_CHECKED
+
+echo
+transition COMPLETED
 
 echo
 echo "=== DEPLOYMENT LIFECYCLE COMPLETE ==="
 echo "deployment_id=$(basename "${DEPLOYMENT}")"
 echo "lifecycle_status=complete"
+echo "final_state=${CURRENT_STATE}"
