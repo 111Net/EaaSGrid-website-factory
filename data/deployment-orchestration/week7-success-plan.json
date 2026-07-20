@@ -1,0 +1,10 @@
+{
+  "orchestration_id": "week7-success-orchestration",
+  "execution_order": [
+    "package",
+    "target",
+    "execute",
+    "verify",
+    "health"
+  ]
+}

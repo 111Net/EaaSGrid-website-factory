@@ -1,0 +1,12 @@
+{
+  "deployment_id": "week7-final-orchestration",
+  "plan_status": "valid",
+  "execution_order": [
+    "package",
+    "target",
+    "execute",
+    "verify",
+    "health"
+  ],
+  "stage_count": 5
+}

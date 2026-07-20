@@ -1,0 +1,25 @@
+{
+  "deployment_id": "week7-final-orchestration",
+  "stages": [
+    {
+      "name": "package",
+      "depends_on": []
+    },
+    {
+      "name": "target",
+      "depends_on": ["package"]
+    },
+    {
+      "name": "execute",
+      "depends_on": ["target"]
+    },
+    {
+      "name": "verify",
+      "depends_on": ["execute"]
+    },
+    {
+      "name": "health",
+      "depends_on": ["verify"]
+    }
+  ]
+}
