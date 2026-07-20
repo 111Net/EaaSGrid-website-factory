@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deployment Orchestration Recovery",
+  "type": "object",
+  "required": [
+    "orchestration_id",
+    "recovery_status",
+    "failed_stage",
+    "resume_from",
+    "final_state"
+  ],
+  "properties": {
+    "orchestration_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recovery_status": {
+      "type": "string",
+      "enum": [
+        "recoverable"
+      ]
+    },
+    "last_completed_stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "failed_stage": {
+      "type": "string"
+    },
+    "resume_from": {
+      "type": "string"
+    },
+    "final_state": {
+      "type": "string",
+      "enum": [
+        "ORCHESTRATION_RECOVERABLE"
+      ]
+    }
+  }
+}
