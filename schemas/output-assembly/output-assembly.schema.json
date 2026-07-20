@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Website Output Assembly",
+  "type": "object",
+  "required": [
+    "factory",
+    "output_type",
+    "source",
+    "output",
+    "status",
+    "directories"
+  ],
+  "properties": {
+    "factory": {
+      "type": "string"
+    },
+    "output_type": {
+      "type": "string",
+      "const": "website"
+    },
+    "source": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "const": "assembled"
+    },
+    "directories": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
