@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EaaSGrid Website Deployment",
+  "type": "object",
+  "required": [
+    "website_id",
+    "deployment_id",
+    "target_environment",
+    "website_output",
+    "deployment_version"
+  ],
+  "properties": {
+    "website_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deployment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_environment": {
+      "type": "string",
+      "enum": [
+        "local",
+        "staging",
+        "production"
+      ]
+    },
+    "website_output": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deployment_version": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

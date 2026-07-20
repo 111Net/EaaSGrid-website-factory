@@ -1,0 +1,33 @@
+{
+  "contract": "EaaSGrid Website Deployment Contract",
+  "version": "1.0.0",
+  "lifecycle": [
+    "prepare",
+    "validate",
+    "package",
+    "target",
+    "deploy",
+    "verify",
+    "active",
+    "rollback"
+  ],
+  "supported_environments": [
+    "local",
+    "staging",
+    "production"
+  ],
+  "required_fields": [
+    "website_id",
+    "deployment_id",
+    "target_environment",
+    "website_output",
+    "deployment_version"
+  ],
+  "deployment_principles": [
+    "validated output only",
+    "explicit target environment",
+    "versioned deployment",
+    "health verification",
+    "rollback readiness"
+  ]
+}
