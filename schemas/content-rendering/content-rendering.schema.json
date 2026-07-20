@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Content Rendering Contract",
+  "type": "object",
+  "required": [
+    "website_type",
+    "source",
+    "status",
+    "content"
+  ],
+  "properties": {
+    "website_type": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "renderable"
+      ]
+    },
+    "content": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
