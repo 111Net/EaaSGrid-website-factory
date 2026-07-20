@@ -22,36 +22,66 @@ cat > "${PLAN_FILE}" <<'JSON'
 }
 JSON
 
-echo "=== DEPLOYMENT ORCHESTRATION EXECUTION TESTS ==="
+echo "=== SUCCESS PATH ==="
 
-OUTPUT="$("${EXECUTOR}" "${PLAN_FILE}")"
+SUCCESS_OUTPUT="$("${EXECUTOR}" "${PLAN_FILE}")"
 
-printf '%s\n' "${OUTPUT}" | grep -q "STAGE 1: package"
-echo "PASS: Package stage executed"
-
-printf '%s\n' "${OUTPUT}" | grep -q "STAGE 2: target"
-echo "PASS: Target stage executed"
-
-printf '%s\n' "${OUTPUT}" | grep -q "STAGE 3: execute"
-echo "PASS: Execute stage executed"
-
-printf '%s\n' "${OUTPUT}" | grep -q "STAGE 4: verify"
-echo "PASS: Verify stage executed"
-
-printf '%s\n' "${OUTPUT}" | grep -q "STAGE 5: health_gate"
-echo "PASS: Health gate stage executed"
-
-printf '%s\n' "${OUTPUT}" \
+printf '%s\n' "${SUCCESS_OUTPUT}" \
     | grep -q "STATE: ORCHESTRATION_COMPLETED"
 
-echo "PASS: Orchestration completion state"
-
-printf '%s\n' "${OUTPUT}" \
+printf '%s\n' "${SUCCESS_OUTPUT}" \
     | grep -q "orchestration_status=complete"
 
-echo "PASS: Orchestration execution"
+echo "PASS: Successful orchestration execution"
+
+echo
+echo "=== FAILURE PATH ==="
+
+set +e
+
+FAILURE_OUTPUT="$(
+    ORCHESTRATION_FAIL_STAGE="verify" \
+    "${EXECUTOR}" "${PLAN_FILE}" 2>&1
+)"
+
+FAILURE_CODE=$?
+
+set -e
+
+if [[ "${FAILURE_CODE}" -eq 0 ]]; then
+    echo "FAIL: Failure path returned success"
+    exit 1
+fi
+
+printf '%s\n' "${FAILURE_OUTPUT}" \
+    | grep -q "FAIL: Stage verify"
+
+echo "PASS: Failure stage detected"
+
+printf '%s\n' "${FAILURE_OUTPUT}" \
+    | grep -q "STATE: ORCHESTRATION_FAILED"
+
+echo "PASS: Orchestration failure state"
+
+printf '%s\n' "${FAILURE_OUTPUT}" \
+    | grep -q "failed_stage=verify"
+
+echo "PASS: Failed stage recorded"
+
+printf '%s\n' "${FAILURE_OUTPUT}" \
+    | grep -q "orchestration_status=failed"
+
+echo "PASS: Failure status recorded"
+
+if printf '%s\n' "${FAILURE_OUTPUT}" \
+    | grep -q "STAGE 5: health_gate"; then
+    echo "FAIL: Execution continued after failure"
+    exit 1
+fi
+
+echo "PASS: Execution halted after failure"
 
 rm -f "${PLAN_FILE}"
 
 echo
-echo "PASS: Deployment Orchestration Execution"
+echo "PASS: Deployment Orchestration Failure Handling"
