@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deployment Lifecycle Audit",
+  "type": "object",
+  "required": [
+    "deployment_id",
+    "website_id",
+    "environment",
+    "version",
+    "lifecycle_status",
+    "final_state",
+    "transitions"
+  ],
+  "properties": {
+    "deployment_id": {
+      "type": "string"
+    },
+    "website_id": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "rolled_back"
+      ]
+    },
+    "final_state": {
+      "type": "string",
+      "enum": [
+        "COMPLETED",
+        "ROLLED_BACK"
+      ]
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
