@@ -1,0 +1,7 @@
+{
+  "website_id": "test-website",
+  "environment": "staging",
+  "version": "v1.0.0",
+  "package_status": "ready",
+  "deployment_status": "pending"
+}
