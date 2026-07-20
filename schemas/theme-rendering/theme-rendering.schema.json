@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Theme Rendering Contract",
+  "type": "object",
+  "required": [
+    "theme",
+    "source",
+    "status",
+    "tokens"
+  ],
+  "properties": {
+    "theme": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "renderable"
+      ]
+    },
+    "tokens": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}
