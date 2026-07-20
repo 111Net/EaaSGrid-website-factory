@@ -32,6 +32,26 @@ transition() {
     echo "STATE: ${CURRENT_STATE}"
 }
 
+rollback_lifecycle() {
+    echo "ACTION: Failure transition"
+
+    transition FAILED
+
+    echo "ACTION: Rollback transition"
+
+    transition ROLLBACK
+
+    ROLLBACK_OUTPUT="$("${ROLLBACK}" "${DEPLOYMENT}")"
+
+    printf '%s\n' "${ROLLBACK_OUTPUT}"         | grep -q "deployment-rollback-complete"
+
+    transition ROLLED_BACK
+
+    echo "PASS: Rollback"
+    echo "lifecycle_status=rolled_back"
+    echo "final_state=${CURRENT_STATE}"
+}
+
 PACKAGE="${PROJECT_ROOT}/data/deployment-package/packages/${WEBSITE_ID}/${VERSION}"
 TARGET="${PACKAGE}"
 DEPLOYMENT="${PROJECT_ROOT}/data/deployment-executor/deployments/${WEBSITE_ID}-${VERSION}-${ENVIRONMENT}"
