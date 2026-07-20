@@ -1,0 +1,25 @@
+{
+  "targets": [
+    {
+      "target_id": "local-default",
+      "environment": "local",
+      "target_type": "filesystem",
+      "target_path": "data/deployments/local",
+      "status": "available"
+    },
+    {
+      "target_id": "staging-default",
+      "environment": "staging",
+      "target_type": "filesystem",
+      "target_path": "data/deployments/staging",
+      "status": "available"
+    },
+    {
+      "target_id": "production-default",
+      "environment": "production",
+      "target_type": "filesystem",
+      "target_path": "data/deployments/production",
+      "status": "available"
+    }
+  ]
+}
