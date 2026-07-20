@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deployment Lifecycle State Machine",
+  "type": "object",
+  "required": [
+    "deployment_id",
+    "current_state",
+    "next_state",
+    "transition_status"
+  ],
+  "properties": {
+    "deployment_id": {
+      "type": "string"
+    },
+    "current_state": {
+      "type": "string",
+      "enum": [
+        "CREATED",
+        "PACKAGED",
+        "TARGET_RESOLVED",
+        "EXECUTED",
+        "VERIFIED",
+        "HEALTH_CHECKED",
+        "COMPLETED",
+        "FAILED",
+        "ROLLBACK",
+        "ROLLED_BACK"
+      ]
+    },
+    "next_state": {
+      "type": "string",
+      "enum": [
+        "PACKAGED",
+        "TARGET_RESOLVED",
+        "EXECUTED",
+        "VERIFIED",
+        "HEALTH_CHECKED",
+        "COMPLETED",
+        "FAILED",
+        "ROLLBACK",
+        "ROLLED_BACK"
+      ]
+    },
+    "transition_status": {
+      "type": "string",
+      "enum": [
+        "valid",
+        "invalid"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
