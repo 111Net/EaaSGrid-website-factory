@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Asset Rendering Manifest",
+  "type": "object",
+  "required": [
+    "engine",
+    "asset_system",
+    "status",
+    "asset_count",
+    "assets"
+  ],
+  "properties": {
+    "engine": {
+      "type": "string"
+    },
+    "asset_system": {
+      "const": "media-rendering"
+    },
+    "status": {
+      "enum": [
+        "RESOLVED",
+        "READY",
+        "FAILED"
+      ]
+    },
+    "asset_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "path",
+          "type",
+          "extension"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "image",
+              "video",
+              "audio"
+            ]
+          },
+          "extension": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
