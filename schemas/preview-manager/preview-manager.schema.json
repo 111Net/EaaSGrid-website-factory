@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EaaSGrid Website Preview Manager",
+  "type": "object",
+  "required": ["previews"],
+  "properties": {
+    "previews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "preview_id",
+          "website_id",
+          "website_output",
+          "status"
+        ],
+        "properties": {
+          "preview_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "website_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "website_output": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "registered",
+              "running",
+              "stopped"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,16 @@
+{
+  "previews": [
+    {
+      "preview_id": "preview-a",
+      "website_id": "client-a",
+      "website_output": "/data/eaasgrid-website-factory/data/preview-manager/test-output/client-a",
+      "status": "stopped"
+    },
+    {
+      "preview_id": "preview-b",
+      "website_id": "client-b",
+      "website_output": "/data/eaasgrid-website-factory/data/preview-manager/test-output/client-b",
+      "status": "registered"
+    }
+  ]
+}
