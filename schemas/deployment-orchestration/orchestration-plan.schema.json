@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deployment Orchestration Plan",
+  "type": "object",
+  "required": [
+    "deployment_id",
+    "plan_status",
+    "execution_order",
+    "stage_count"
+  ],
+  "properties": {
+    "deployment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "plan_status": {
+      "type": "string",
+      "enum": [
+        "valid"
+      ]
+    },
+    "execution_order": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "stage_count": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "additionalProperties": false
+}
