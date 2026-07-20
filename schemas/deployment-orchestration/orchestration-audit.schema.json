@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deployment Orchestration Audit",
+  "type": "object",
+  "required": [
+    "orchestration_id",
+    "status",
+    "final_state",
+    "events"
+  ],
+  "properties": {
+    "orchestration_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "failed"
+      ]
+    },
+    "final_state": {
+      "type": "string",
+      "enum": [
+        "ORCHESTRATION_COMPLETED",
+        "ORCHESTRATION_FAILED"
+      ]
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "stage",
+          "status"
+        ],
+        "properties": {
+          "stage": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "completed",
+              "failed"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
