@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deployment Lifecycle Controller",
+  "type": "object",
+  "required": [
+    "website_id",
+    "environment",
+    "version",
+    "deployment_id",
+    "lifecycle_status"
+  ],
+  "properties": {
+    "website_id": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "deployment_id": {
+      "type": "string"
+    },
+    "lifecycle_status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "rolled_back"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
