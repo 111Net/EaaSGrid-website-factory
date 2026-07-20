@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deployment Lifecycle Recovery",
+  "type": "object",
+  "required": [
+    "deployment_id",
+    "recovery_status",
+    "recovered_from_state"
+  ],
+  "properties": {
+    "deployment_id": {
+      "type": "string"
+    },
+    "recovery_status": {
+      "type": "string",
+      "enum": [
+        "RECOVERED",
+        "ROLLED_BACK"
+      ]
+    },
+    "recovered_from_state": {
+      "type": "string",
+      "enum": [
+        "COMPLETED",
+        "ROLLED_BACK"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
