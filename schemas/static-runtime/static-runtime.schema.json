@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Static Website Runtime",
+  "type": "object",
+  "required": [
+    "website",
+    "output_root",
+    "status",
+    "manifest",
+    "validated_at"
+  ],
+  "properties": {
+    "website": {
+      "type": "string"
+    },
+    "output_root": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "LOADED",
+        "VALIDATED",
+        "READY",
+        "FAILED"
+      ]
+    },
+    "manifest": {
+      "type": "string"
+    },
+    "validated_at": {
+      "type": "string"
+    }
+  }
+}
