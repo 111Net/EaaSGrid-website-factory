@@ -19,3 +19,11 @@ __pycache__/
 
 .DS_Store
 venv/
+
+# Runtime deployment data
+data/deployment-audit/
+data/deployment-executor/deployments/
+data/deployment-package/packages/
+
+# Temporary test outputs
+data/deployment-orchestration/
