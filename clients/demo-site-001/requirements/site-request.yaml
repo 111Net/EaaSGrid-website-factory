@@ -1,0 +1,24 @@
+customer:
+  name: Demo Customer
+  industry: Technology
+
+website:
+  type: corporate
+  template: modern
+
+pages:
+  - home
+  - about
+  - services
+  - contact
+
+theme:
+  name: professional
+
+features:
+  - responsive-design
+  - contact-form
+  - seo
+
+deployment:
+  environment: staging
