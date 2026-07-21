@@ -1,0 +1,22 @@
+sprint:
+  number: 13
+  name: Factory Development Automation Engine
+
+purpose:
+  Build the system that generates future sprints automatically.
+
+jobs:
+
+  - sprint-generator
+
+  - folder-builder
+
+  - validator-builder
+
+  - master-gate-builder
+
+  - report-builder
+
+  - syntax-validator
+
+  - git-validator
