@@ -1,0 +1,22 @@
+sprint:
+  number: 23
+  title: Customer Operations Platform
+
+purpose:
+  - customer portal
+  - customer lifecycle management
+  - website ordering workflow
+
+modules:
+
+  - customer-authentication
+  - customer-database
+  - customer-dashboard
+  - request-wizard
+  - order-tracking
+
+validation:
+  - syntax-check
+  - engine-check
+  - customer-flow-test
+  - git-integrity
