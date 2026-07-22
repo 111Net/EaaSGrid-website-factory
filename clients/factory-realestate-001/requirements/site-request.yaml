@@ -1,0 +1,22 @@
+customer:
+  id: factory-realestate-001
+  name: "factory-realestate-001 Test Customer"
+  industry: "real-estate"
+
+website:
+  type: real-estate
+  template: realestate-premium
+
+pages:
+  - home
+  - about
+  - services
+  - contact
+
+features:
+  - responsive-design
+  - seo
+  - contact-form
+
+deployment:
+  environment: staging

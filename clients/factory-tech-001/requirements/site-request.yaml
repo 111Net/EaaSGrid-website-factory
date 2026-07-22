@@ -1,0 +1,22 @@
+customer:
+  id: factory-tech-001
+  name: "factory-tech-001 Test Customer"
+  industry: "technology"
+
+website:
+  type: technology
+  template: saas-modern
+
+pages:
+  - home
+  - about
+  - services
+  - contact
+
+features:
+  - responsive-design
+  - seo
+  - contact-form
+
+deployment:
+  environment: staging

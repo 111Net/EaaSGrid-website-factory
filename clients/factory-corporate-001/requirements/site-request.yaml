@@ -1,0 +1,22 @@
+customer:
+  id: factory-corporate-001
+  name: "factory-corporate-001 Test Customer"
+  industry: "corporate"
+
+website:
+  type: corporate
+  template: corporate-modern
+
+pages:
+  - home
+  - about
+  - services
+  - contact
+
+features:
+  - responsive-design
+  - seo
+  - contact-form
+
+deployment:
+  environment: staging

@@ -1,0 +1,22 @@
+customer:
+  id: factory-restaurant-001
+  name: "factory-restaurant-001 Test Customer"
+  industry: "restaurant"
+
+website:
+  type: restaurant
+  template: restaurant-modern
+
+pages:
+  - home
+  - about
+  - services
+  - contact
+
+features:
+  - responsive-design
+  - seo
+  - contact-form
+
+deployment:
+  environment: staging
